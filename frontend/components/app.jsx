@@ -5,7 +5,6 @@ import AuthForm from './auth_form';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.renderAuth = this.renderAuth.bind(this);
   }
 
   render() {
