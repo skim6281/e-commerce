@@ -7,6 +7,7 @@ class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "" };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -15,10 +16,47 @@ class AuthForm extends React.Component {
     });
   }
 
+  handleSubmit(e) {
+    const { formType, login, signup } =this.props;
+    e.preventDefault();
+    const user = this.state;
+    if(formType === 'login') {
+      login(user);
+    } else if(formType === 'signup') {
+      signup(user);
+    }
+  }
+
+  renderErrors() {
+    return(
+      <p>{this.props.errors[0]}</p>
+    )
+  }
+
   render() {
+    const { formType } = this.props;
+    let buttonText;
+    if (formType === 'login') {
+      buttonText = "Login";
+    } else {
+      buttonText = "Sign up";
+    }
     return (
       <div>
-        {this.props.formType}
+        {formType}
+        <form onSubmit={this.handleSubmit} className="auth-form">
+          <input type="text"
+            placeholder="Email"
+            value={this.state.username}
+            onChange={this.update("username")} />
+          <input type="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.update("password")} />
+          <input type="submit"
+            value={formType}/>
+          <div>{this.renderErrors()}</div>
+        </form>
       </div>
     )
   }
