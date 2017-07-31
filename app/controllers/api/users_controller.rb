@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       login(@user)
       UserMailer.welcome_email(@user).deliver_later
-      render 'api/users/user'
+      render 'api/users/show'
     else
       render json: @user.errors.full_messages, status: 422
     end
