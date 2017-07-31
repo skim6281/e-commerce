@@ -14,4 +14,5 @@
 #
 
 class Product < ActiveRecord::Base
+  validates :name, :brand, :model, :sku, :price, :desc, presence: true
 end
