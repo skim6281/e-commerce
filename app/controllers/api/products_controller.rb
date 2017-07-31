@@ -4,8 +4,18 @@ class Api::ProductsController < ApplicationController
     render 'api/products/index'
   end
 
-  def show
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      render 'api/products/show'
+    else
+      render json: @product.errors.full_messages, status: 422
+    end
+  end
 
+  def destroy
+    @product = product.find(params[:id])
+    @product.destroy
   end
 
   private
