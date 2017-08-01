@@ -11,6 +11,6 @@ export const createProducts = products => {
 export const fetchProducts = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/prodcuts'
+    url: 'api/products'
   });
 };
