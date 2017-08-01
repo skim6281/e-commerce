@@ -7,6 +7,8 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @cart = Cart.new(user_id: @user.id)
+      @cart.save
       login(@user)
       UserMailer.welcome_email(@user).deliver_now
       render 'api/users/show'
