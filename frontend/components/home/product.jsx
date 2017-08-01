@@ -20,6 +20,15 @@ class Product extends React.Component {
   }
 
   render() {
-
+    const { product } = this.props;
+    return(
+      <div>
+        <h3> {product.name} </h3>
+        <span> {product.brand} </span>
+        <span> {product.model} </span>
+        <span> {product.sku} </span>
+        <span> {product.price} </span>
+      </div>
+    )
   }
 };
