@@ -11,11 +11,11 @@ class Product extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   };
 
-  this.openModal() {
+  openModal() {
     this.setState({modalIsOpen: true});
   }
 
-  this.closeModal() {
+  closeModal() {
     this.setState({modalIsOpen: false});
   }
 
@@ -32,3 +32,5 @@ class Product extends React.Component {
     )
   }
 };
+
+export default Product;
