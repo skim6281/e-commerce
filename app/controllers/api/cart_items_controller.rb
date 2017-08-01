@@ -3,8 +3,12 @@ class Api::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = Cart.new(cart_items_params)
-    
+    @cart_item = CartItem.new(cart_item_params)
+    if @cart_item.save
+      render 'api/cart_items/show'
+    else
+      render json: @cart_item.errors.full_messages, status: 422
+    end
   end
 
   def show
@@ -19,6 +23,6 @@ class Api::CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:cart_item, :product_id)
+    params.require(:cart_item).permit(:cart_id, :product_id)
   end
 end

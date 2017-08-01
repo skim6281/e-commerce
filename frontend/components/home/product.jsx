@@ -9,6 +9,7 @@ class Product extends React.Component {
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   };
 
   openModal() {
@@ -17,6 +18,20 @@ class Product extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+  }
+
+  addToCart() {
+    const { product, currentUser } = this.props;
+    console.log("in cart: " + currentUser);
+    this.props.createCartItem({product_id: product.id, cart_id: currentUser.cart.id})
+  }
+
+  renderAddToCartButton() {
+    if(this.props.currentUser) {
+      return (
+        <button onClick={this.addToCart}>Add to Cart</button>
+      )
+    }
   }
 
   render() {
@@ -28,6 +43,7 @@ class Product extends React.Component {
         <p> {product.model} </p>
         <p> {product.sku} </p>
         <p> {product.price} </p>
+        {this.renderAddToCartButton()}
       </div>
     )
   }

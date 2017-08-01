@@ -6,7 +6,7 @@ export const REMOVE_ERRORS = 'REMOVE_ERRORS';
 export const RECEIVE_FORM_TYPE = 'RECEIVE_FORM_TYPE';
 
 export const receiveCurrentUser = currentUser => ({
-  type: RECEIVE_FORM_TYPE,
+  type: RECEIVE_CURRENT_USER,
   currentUser
 });
 
