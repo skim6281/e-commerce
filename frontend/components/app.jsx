@@ -1,21 +1,24 @@
 import React from 'react';
 import Nav from './nav';
 import AuthForm from './auth_form';
+import { withRouter } from 'react-router';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.history);
   }
 
   render() {
+    const { history } = this.props;
     const location = window.location.hash;
     if(location === "#/login") {
       return(
-        <AuthForm formType="login"/>
+        <AuthForm history={history} formType="login"/>
       )
     } else if(location === "#/signup") {
       return(
-        <AuthForm formType="signup"/>
+        <AuthForm history={history} formType="signup"/>
       )
     } else {
       return (
@@ -30,4 +33,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
