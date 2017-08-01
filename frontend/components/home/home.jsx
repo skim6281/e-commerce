@@ -9,8 +9,20 @@ class Home extends React.Component {
     this.props.fetchProducts();
   }
 
+  renderProducts() {
+    return this.props.products.map(product => {
+      return <Product
+                key={product.id}
+                product={product} />
+    });
+  }
+
   render() {
-    return(<div>Products</div>)
+    return(
+      <div>
+        {this.renderProducts()}
+      </div>
+    )
   }
 }
 
