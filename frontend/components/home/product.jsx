@@ -24,10 +24,10 @@ class Product extends React.Component {
     return(
       <div>
         <h3> {product.name} </h3>
-        <span> {product.brand} </span>
-        <span> {product.model} </span>
-        <span> {product.sku} </span>
-        <span> {product.price} </span>
+        <p> {product.brand} </p>
+        <p> {product.model} </p>
+        <p> {product.sku} </p>
+        <p> {product.price} </p>
       </div>
     )
   }
