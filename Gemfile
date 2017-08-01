@@ -28,6 +28,7 @@ gem 'annotate'
 
 gem 'validates_email_format_of'
 
+gem 'figaro'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
