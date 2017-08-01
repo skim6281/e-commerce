@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { login, signup, removeErrors } from './../actions/session_actions';
-
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -21,9 +20,9 @@ class AuthForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if(formType === 'login') {
-      login(user);
+      login(user).then(this.props.history.push('/#'));
     } else if(formType === 'signup') {
-      signup(user);
+      signup(user).then(this.props.history.push('/#'));
     }
   }
 
