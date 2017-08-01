@@ -1,8 +1,12 @@
 import React from 'react';
 
-class Products extends React.Component {
+class Home extends React.Component {
   constructor(props){
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchProducts();
   }
 
   render() {
@@ -10,4 +14,4 @@ class Products extends React.Component {
   }
 }
 
-export default Products;
+export default Home;
