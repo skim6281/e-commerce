@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #BED449;
+  justify-content: space-between;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  height: 40px;
+}
+
+ul {
+  display: flex;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.below-nav {
+  margin-top: 40px;
+}
