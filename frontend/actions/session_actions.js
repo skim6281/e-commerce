@@ -3,7 +3,6 @@ import * as SessionAPIUtil from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const REMOVE_ERRORS = 'REMOVE_ERRORS';
-export const RECEIVE_FORM_TYPE = 'RECEIVE_FORM_TYPE';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -17,11 +16,6 @@ export const receiveErrors = errors => ({
 
 export const removeErrors = () => ({
   type: REMOVE_ERRORS,
-});
-
-export const receiveFormType = formType => ({
-  type: RECEIVE_FORM_TYPE,
-  formType
 });
 
 export const signup = user => dispatch => {
