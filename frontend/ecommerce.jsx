@@ -16,7 +16,12 @@ const configureStore = (preloadedState = {}) => (
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-  store = configureStore();
+  if (window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser } };
+    store = configureStore(preloadedState);
+  } else {
+    store = configureStore();
+  }
   window.store = store;
   const root = document.getElementById('root');
   Modal.setAppElement(document.body);
