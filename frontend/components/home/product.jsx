@@ -28,7 +28,7 @@ class Product extends React.Component {
   renderAddToCartButton() {
     if(this.props.currentUser) {
       return (
-        <button onClick={this.addToCart}>Add to Cart</button>
+        <button className="cart-button" onClick={this.addToCart}>Add to Cart</button>
       )
     }
   }
@@ -37,12 +37,33 @@ class Product extends React.Component {
     const { product } = this.props;
     return(
       <div className="product">
-        <h3> {product.name} </h3>
-        <p> <b>Brand:</b> {product.brand} </p>
-        <p> <b>Model:</b> {product.model} </p>
-        <p> {product.sku} </p>
-        <p> ${product.price} </p>
-        {this.renderAddToCartButton()}
+        <a className="product-link" onClick={this.openModal}>
+          <div className="product-details">
+            <h3> {product.name} </h3>
+            <p> <b>Brand:</b> {product.brand} </p>
+            <p> <b>Model:</b> {product.model} </p>
+            <p> {product.sku} </p>
+            <p> ${product.price} </p>
+            {this.renderAddToCartButton()}
+          </div>
+        </a>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          overlayClassName="overlay"
+          className="product-modal"
+          contentLabel="product"
+        >
+          <main className="product-main">
+            <h3> {product.name} </h3>
+            <p> <b>Brand:</b> {product.brand} </p>
+            <p> <b>Model:</b> {product.model} </p>
+            <p> {product.sku} </p>
+            <p> ${product.price} </p>
+            <p> {product.desc}</p>
+            {this.renderAddToCartButton()}
+          </main>
+        </Modal>
       </div>
     )
   }

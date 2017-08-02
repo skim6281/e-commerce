@@ -22,7 +22,7 @@ class App extends React.Component {
     } else {
       return (
         <main>
-          <Nav/>
+          <Nav history={history}/>
           <content className="content">
             {this.props.children}
           </content>
