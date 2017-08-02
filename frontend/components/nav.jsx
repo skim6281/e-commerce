@@ -22,7 +22,7 @@ class Nav extends React.Component{
         <div>
           <Link to="/cart">Cart</Link>
           <button onClick={this.props.logout}>Logout</button>
-          {this.renderUploadLink()}
+          {this.renderAdminLinks()}
         </div>
       )
     } else {
