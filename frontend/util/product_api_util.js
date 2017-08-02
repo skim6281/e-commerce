@@ -9,8 +9,6 @@ export const createProducts = products => {
 };
 
 export const createProduct = product => {
-  console.log("product: ");
-  console.log(product);
   return $.ajax({
     method: 'POST',
     url: 'api/products',
