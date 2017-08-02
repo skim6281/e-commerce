@@ -36,12 +36,12 @@ class Product extends React.Component {
   render() {
     const { product } = this.props;
     return(
-      <div>
+      <div className="product">
         <h3> {product.name} </h3>
-        <p> {product.brand} </p>
-        <p> {product.model} </p>
+        <p> <b>Brand:</b> {product.brand} </p>
+        <p> <b>Model:</b> {product.model} </p>
         <p> {product.sku} </p>
-        <p> {product.price} </p>
+        <p> ${product.price} </p>
         {this.renderAddToCartButton()}
       </div>
     )

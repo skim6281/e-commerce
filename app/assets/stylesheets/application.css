@@ -13,5 +13,6 @@
  *= require reset
  *= require general
  *= require nav_bar
+ *= require home
  *= require_self
  */

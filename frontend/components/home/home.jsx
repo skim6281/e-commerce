@@ -22,7 +22,7 @@ class Home extends React.Component {
 
   render() {
     return(
-      <div className="below-nav">
+      <div className="below-nav product-feed">
         {this.renderProducts()}
       </div>
     )
