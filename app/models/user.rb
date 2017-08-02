@@ -13,7 +13,7 @@
 
 class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
-  validates :username, uniqueness: true, email_format: { message: 'Enter valid email'}
+  validates :username, uniqueness: true, email_format: { message: 'is not valid email'}
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
 
