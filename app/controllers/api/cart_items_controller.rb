@@ -20,8 +20,8 @@ class Api::CartItemsController < ApplicationController
   end
 
   def destroy
-    @cart_item = Comment.find(params[:id])
-    if @cart_item.cart.user === current_user
+    @cart_item = CartItem.find(params[:id])
+    if @cart_item.cart.user_id === current_user.id
       if @cart_item.destroy
         render 'api/cart_items/show'
       else
