@@ -11,5 +11,13 @@ export const fetchCartItems = cartId => {
   return $.ajax({
     method: 'GET',
     url: `api/carts/${cartId}/cart_items`
-  })
-}
+  });
+};
+
+export const deleteCartItem = cartItem => {
+  const { cart_id, id } = cartItem;
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/carts/${cart_id}/cart_items/${id}`
+  });
+};
