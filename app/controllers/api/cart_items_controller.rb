@@ -13,12 +13,6 @@ class Api::CartItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def update
-  end
-
   def destroy
     @cart_item = CartItem.find(params[:id])
     if @cart_item.cart.user_id === current_user.id
