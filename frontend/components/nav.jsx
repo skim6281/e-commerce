@@ -11,7 +11,11 @@ class Nav extends React.Component{
   renderAdminLinks() {
     if(this.props.currentUser.admin) {
       return(
-        <Link to="/upload">Upload</Link>
+        <ul>
+          <li><Link to="/upload">Upload</Link></li>
+          <li><Link to="/users">List Users</Link></li>
+          <li><Link to="/product-form">Add Product</Link></li>
+        </ul>
       )
     }
   }
@@ -19,26 +23,26 @@ class Nav extends React.Component{
   renderLinks() {
     if(this.props.currentUser) {
       return (
-        <div>
-          <Link to="/cart">Cart</Link>
-          <button onClick={this.props.logout}>Logout</button>
+        <ul>
           {this.renderAdminLinks()}
-        </div>
+          <li><Link to="/cart">Cart</Link></li>
+          <li><button className="logout" onClick={this.props.logout}>Logout</button></li>
+        </ul>
       )
     } else {
       return (
-        <div>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">SignUp</Link>
-        </div>
+        <ul>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/signup">SignUp</Link></li>
+        </ul>
       )
     }
   }
 
   render() {
     return (
-      <div>
-        NavBar
+      <div className="nav">
+        <div className="title"><Link to="/">ECommerce</Link></div>
         {this.renderLinks()}
       </div>
     )
