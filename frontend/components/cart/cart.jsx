@@ -27,6 +27,7 @@ class Cart extends React.Component {
       <div>
         Cart
         {this.renderCartItems()}
+        <button>Buy</button>
       </div>
     )
   }
