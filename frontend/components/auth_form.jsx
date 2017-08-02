@@ -1,12 +1,19 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { login, signup, removeErrors } from './../actions/session_actions';
+import { Link } from 'react-router-dom';
 
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.formType !== this.props.formType) {
+      this.props.removeErrors();
+    }
   }
 
   update(field) {
@@ -20,9 +27,9 @@ class AuthForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if(formType === 'login') {
-      login(user).then(this.props.history.push('/#'));
+      login(user).then(() => this.props.history.push('/#'),null);
     } else if(formType === 'signup') {
-      signup(user).then(this.props.history.push('/#'));
+      signup(user).then(() => this.props.history.push('/#'),null);
     }
   }
 
@@ -35,15 +42,25 @@ class AuthForm extends React.Component {
   render() {
     const { formType } = this.props;
     let buttonText;
+    let text;
+    let linkText;
+    let link;
     if (formType === 'login') {
       buttonText = "Login";
+      text = "Don't have an account? ";
+      linkText = "Sign Up";
+      link="/signup";
     } else {
       buttonText = "Sign up";
+      text = "Have an account? ";
+      linkText = "Login"
+      link="/login";
     }
     return (
       <div>
-        {formType}
+        <h1><Link to="/">E-Commerce</Link></h1>
         <form onSubmit={this.handleSubmit} className="auth-form">
+          <h2>{buttonText}</h2>
           <input type="text"
             placeholder="Email"
             value={this.state.username}
@@ -52,10 +69,15 @@ class AuthForm extends React.Component {
             placeholder="Password"
             value={this.state.password}
             onChange={this.update("password")} />
-          <input type="submit"
-            value={formType}/>
+          <input className="button"
+            type="submit"
+            value={buttonText}/>
           <div>{this.renderErrors()}</div>
         </form>
+        <div className="auth-change">
+          <p>{text}</p>
+          <Link to={link}>{linkText}</Link>
+        </div>
       </div>
     )
   }
@@ -70,7 +92,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    removeErros: () => dispatch(removeErrors()),
+    removeErrors: () => dispatch(removeErrors()),
     login: user => dispatch(login(user)),
     signup: user => dispatch(signup(user))
   });
