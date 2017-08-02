@@ -31,7 +31,7 @@ class Upload extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="below-nav">
         <input type='file'
           onChange={this.updateFile} />
         <button onClick={this.handleSubmit}>Upload</button>

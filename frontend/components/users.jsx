@@ -12,7 +12,6 @@ class Users extends React.Component {
   }
 
   renderUsers() {
-    console.log(this.props.users);
     return this.props.users.map(user => {
       return (
         <div key={user.id}>
