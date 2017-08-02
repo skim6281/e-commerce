@@ -20,6 +20,14 @@ class Api::CartItemsController < ApplicationController
   end
 
   def destroy
+    @cart_item = Comment.find(params[:id])
+    if @cart_item.cart.user === current_user
+      if @cart_item.destroy
+        render 'api/cart_items/show'
+      else
+        render json: @cart_item.errors.full_messages, status: 422
+      end
+    end
   end
 
   private
