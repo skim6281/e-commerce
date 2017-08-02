@@ -32,7 +32,7 @@ class ProductForm extends React.Component {
     const { currentUser } = this.props;
     if(currentUser.admin) {
       return(
-        <div>
+        <div className="below-nav">
           <form onSubmit={this.handleSubmit}>
             <input type="text"
               placeholder="Name"
