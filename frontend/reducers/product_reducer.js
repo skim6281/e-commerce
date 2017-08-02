@@ -2,7 +2,7 @@ import {
   RECEIVE_PRODUCTS,
   RECEIVE_PRODUCT } from '../actions/product_actions';
 
-const initialState = []
+const initialState = [];
 
 const ProductReducer = (state = initialState, action) => {
   Object.freeze(state)
