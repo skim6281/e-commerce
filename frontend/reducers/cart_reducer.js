@@ -1,7 +1,8 @@
 import {
   RECEIVE_CART_ITEMS,
   RECEIVE_CART_ITEM,
-  REMOVE_CART_ITEM } from '../actions/cart_item_actions';
+  REMOVE_CART_ITEM,
+  REMOVE_CART_ITEMS } from '../actions/cart_item_actions';
 
 const initialState = []
 
@@ -25,6 +26,8 @@ const CartReducer = (state = initialState, action) => {
         newCartItems.splice(index, 1);
       }
       return newCartItems;
+    case REMOVE_CART_ITEMS:
+      return [];
     default:
       return state;
   }
