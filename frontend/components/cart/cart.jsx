@@ -30,7 +30,7 @@ class Cart extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="below-nav">
         Cart
         {this.renderCartItems()}
         <button onClick={this.makeOrder}>Buy</button>
