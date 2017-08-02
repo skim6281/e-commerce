@@ -12,9 +12,13 @@ class Cart extends React.Component {
 
   renderCartItems() {
     return this.props.cart.map(cartItem => {
-      return <CartItem
-                key={cartItem.id}
-                product={cartItem.product} />
+      return (
+          <CartItem
+                    key={cartItem.id}
+                    cartItem={cartItem}
+                    product={cartItem.product}
+                    deleteCartItem={this.props.deleteCartItem}/>
+      )
     });
   };
 
