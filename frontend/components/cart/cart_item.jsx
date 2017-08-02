@@ -12,8 +12,6 @@ class CartItem extends React.Component {
 
   render() {
     const { product, cartItem } = this.props;
-    // console.log("cartitem: ");
-    // console.log(cartItem);
     return (
       <div>
         <h3> {product.name} </h3>

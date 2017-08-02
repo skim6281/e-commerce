@@ -22,7 +22,6 @@ class Product extends React.Component {
 
   addToCart() {
     const { product, currentUser } = this.props;
-    console.log("in cart: " + currentUser);
     this.props.createCartItem({product_id: product.id, cart_id: currentUser.cart.id})
   }
 
