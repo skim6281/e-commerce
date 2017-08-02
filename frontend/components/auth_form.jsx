@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { login, signup, removeErrors } from './../actions/session_actions';
 import { Link } from 'react-router-dom';
@@ -40,17 +40,21 @@ class AuthForm extends React.Component {
   }
 
   render() {
-    const { formType } = this.props;
+    const { formType, history, loggedIn } = this.props;
     let buttonText;
     let text;
     let linkText;
     let link;
+    if(loggedIn) {
+      history.push('/#');
+      return (<div></div>)
+    }
     if (formType === 'login') {
       buttonText = "Login";
       text = "Don't have an account? ";
       linkText = "Sign Up";
       link="/signup";
-    } else {
+    } else if(formType === 'signup'){
       buttonText = "Sign up";
       text = "Have an account? ";
       linkText = "Login"
