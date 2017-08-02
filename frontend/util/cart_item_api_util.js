@@ -6,3 +6,10 @@ export const createCartItem = cartItem => {
       data: {cart_item: cartItem }
   });
 };
+
+export const fetchCartItems = cartId => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/carts/${cartId}/cart_items`
+  })
+}
