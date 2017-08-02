@@ -1,14 +1,11 @@
 import {
   RECEIVE_CURRENT_USER,
   RECEIVE_ERRORS,
-  REMOVE_ERRORS,
-  RECEIVE_FORM_TYPE } from '../actions/session_actions';
-import merge from 'lodash/merge';
+  REMOVE_ERRORS } from '../actions/session_actions';
 
 const initialState = {
   currentUser: null,
-  errors: [],
-  formType: null
+  errors: []
 }
 
 const SessionReducer = (state = initialState, action) => {
@@ -20,8 +17,6 @@ const SessionReducer = (state = initialState, action) => {
       return Object.assign({}, state, { errors: action.errors});
     case REMOVE_ERRORS:
       return Object.assign({}, state, { errors: [] });
-    case RECEIVE_FORM_TYPE:
-      return Object.assign({}, state, { formType: action.formType})
     default:
       return state;
   }
