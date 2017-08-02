@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc)
     render 'api/products/index'
   end
 
