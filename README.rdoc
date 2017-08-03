@@ -8,4 +8,4 @@
   - webpack
   - bundle exec rails s
 
-- Go to localhost:3000
+- Go to link:localhost:3000
