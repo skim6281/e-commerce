@@ -19,8 +19,19 @@ class User < ActiveRecord::Base
 
   has_one :cart
   has_many :orders
+  has_one :customers_orders_count
+
+  delegate :user_order_count, to: :customers_orders_count
+
+  def user_order_count
+    customers_orders_count.user_order_count
+  end
 
   attr_reader :password
+
+  def order_count
+    self.order_ids.count
+  end
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

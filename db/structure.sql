@@ -99,6 +99,45 @@ ALTER SEQUENCE carts_id_seq OWNED BY carts.id;
 
 
 --
+-- Name: orders; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE orders (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    username character varying NOT NULL,
+    password_digest character varying NOT NULL,
+    session_token character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    admin boolean DEFAULT false
+);
+
+
+--
+-- Name: customers_orders_count; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW customers_orders_count AS
+ SELECT users.username AS user_username,
+    count(orders.id) AS user_order_count
+   FROM (users
+     LEFT JOIN orders ON ((users.id = orders.user_id)))
+  GROUP BY users.username;
+
+
+--
 -- Name: order_items; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -129,18 +168,6 @@ CREATE SEQUENCE order_items_id_seq
 --
 
 ALTER SEQUENCE order_items_id_seq OWNED BY order_items.id;
-
-
---
--- Name: orders; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE orders (
-    id integer NOT NULL,
-    user_id integer NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
 
 
 --
@@ -204,21 +231,6 @@ ALTER SEQUENCE products_id_seq OWNED BY products.id;
 
 CREATE TABLE schema_migrations (
     version character varying NOT NULL
-);
-
-
---
--- Name: users; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE users (
-    id integer NOT NULL,
-    username character varying NOT NULL,
-    password_digest character varying NOT NULL,
-    session_token character varying NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    admin boolean DEFAULT false
 );
 
 
@@ -423,4 +435,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170801030956');
 INSERT INTO schema_migrations (version) VALUES ('20170801210508');
 
 INSERT INTO schema_migrations (version) VALUES ('20170801213340');
+
+INSERT INTO schema_migrations (version) VALUES ('20170803142508');
 

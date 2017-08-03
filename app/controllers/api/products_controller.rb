@@ -43,6 +43,7 @@ class Api::ProductsController < ApplicationController
       render 'api/products/show'
     else
       render json: ["Product not found"], status: 422
+    end
   end
 
   def destroy
