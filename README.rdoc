@@ -2,11 +2,10 @@
 
 ## Usage
 - Setup
-  ```
-  git clone https://github.com/skim6281/e-commerce.git
-  bundle install
-  npm install
-  webpack
-  bundle exec rails s
-  ```
-- Go to [localhost:3000](localhost:3000)
+  - git clone https://github.com/skim6281/e-commerce.git
+  - bundle install
+  - npm install
+  - webpack
+  - bundle exec rails s
+
+- Go to localhost:3000
