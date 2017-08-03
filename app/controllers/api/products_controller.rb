@@ -28,8 +28,25 @@ class Api::ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+    if @product
+      render 'api/products/show'
+    else
+      render json: ["Product not found"], status: 422
+    end
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(price: params[:price])
+      render 'api/products/show'
+    else
+      render json: ["Product not found"], status: 422
+  end
+
   def destroy
-    @product = product.find(params[:id])
+    @product = Product.find(params[:id])
     @product.destroy
   end
 
