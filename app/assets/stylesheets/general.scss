@@ -1,16 +1,19 @@
+$border: 1px solid #000;
+$center: 0 auto;
+
 a {
   color: #3897F0;
   margin: 0 10px;
 }
 
 input {
-  border: 1px solid #000;
+  border: $border;
   padding: 5px;
   margin: 10px 0;
 }
 
 textarea {
-  border: 1px solid #000;
+  border: $border;
   padding: 5px;
   margin-bottom: 10px;
   height: 50px;
@@ -20,8 +23,8 @@ form {
   display: flex;
   flex-direction: column;
   width: 250px;
-  margin: 0 auto;
-  border: 1px solid #000;
+  margin: $center;
+  border: $border;
   padding: 10px;
 }
 
@@ -36,7 +39,7 @@ form {
 
 button {
   padding: 5px;
-  border: 1px solid #000;
+  border: $border;
   padding: 5px;
 }
 
@@ -52,7 +55,7 @@ h2 {
 
 .auth-change {
   display: flex;
-  margin: 0 auto;
+  margin: $center;
   width: 250px;
   margin-top: 10px;
 }

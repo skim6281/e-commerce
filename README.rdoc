@@ -5,10 +5,14 @@
   - git clone https://github.com/skim6281/e-commerce.git
   - bundle install
   - npm install
+  - bundle exec rake db:seed
   - webpack
   - bundle exec rails s
 
 - Go to http://localhost:3000
+- For admin user, sign in with:
+    username: 'admin@test.com'
+    password: 'password'
 
 == Technologies
 * Ruby on Rails v4.2.8
