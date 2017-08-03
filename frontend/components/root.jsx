@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Switch, Redirect } from 'react-router';
 import { HashRouter, Route } from 'react-router-dom';
 import HomeContainer from './home/home_container';
-import UploadContainer from './upload_container';
+import UploadContainer from './upload/upload_container';
 import CartContainer from './cart/cart_container';
 import ProductFormContainer from './product_form/product_form_container';
 import Users from './users';
