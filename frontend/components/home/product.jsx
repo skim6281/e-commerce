@@ -42,9 +42,8 @@ class Product extends React.Component {
             <h3> {product.name} </h3>
             <p> <b>Brand:</b> {product.brand} </p>
             <p> <b>Model:</b> {product.model} </p>
+            <p> <b>Price:</b> ${product.price} </p>
             <p> {product.sku} </p>
-            <p> ${product.price} </p>
-            {this.renderAddToCartButton()}
           </div>
         </a>
         <Modal
@@ -58,8 +57,8 @@ class Product extends React.Component {
             <h3> {product.name} </h3>
             <p> <b>Brand:</b> {product.brand} </p>
             <p> <b>Model:</b> {product.model} </p>
+            <p> <b>Price:</b> ${product.price} </p>
             <p> {product.sku} </p>
-            <p> ${product.price} </p>
             <p> {product.desc}</p>
             {this.renderAddToCartButton()}
           </main>
