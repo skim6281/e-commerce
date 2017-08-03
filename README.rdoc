@@ -1,6 +1,6 @@
 == E-Commerce
 
-* Usage
+= Usage
 - Setup
   - git clone https://github.com/skim6281/e-commerce.git
   - bundle install
