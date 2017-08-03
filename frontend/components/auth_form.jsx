@@ -10,6 +10,8 @@ class AuthForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  //remove errors when authform changes type
+  // Ex: sign up form changes to login form
   componentWillReceiveProps(newProps) {
     if (newProps.formType !== this.props.formType) {
       this.props.removeErrors();

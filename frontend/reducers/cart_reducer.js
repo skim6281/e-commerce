@@ -16,6 +16,7 @@ const CartReducer = (state = initialState, action) => {
     case REMOVE_CART_ITEM:
       const newCartItems = state.slice();
       let index;
+      //look for the index of cart item
       for(let i = 0; i < newCartItems.length; i++) {
         let item = newCartItems[i];
         if(action.cartItem.id === item.id) {

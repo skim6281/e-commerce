@@ -9,6 +9,7 @@ class Nav extends React.Component{
     this.logOut = this.logOut.bind(this);
   }
 
+  // Admin only links
   renderAdminLinks() {
     if(this.props.currentUser.admin) {
       return(

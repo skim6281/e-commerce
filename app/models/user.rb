@@ -29,10 +29,13 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  # gets a count of total orders made
   def order_count
     self.order_ids.count
   end
 
+  # find user by username and password
+  # check to see if password is valid
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user && user.valid_password?(password)
@@ -48,6 +51,7 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
+  # session token is reset every login and logout
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!

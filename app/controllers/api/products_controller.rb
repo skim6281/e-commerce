@@ -4,6 +4,8 @@ class Api::ProductsController < ApplicationController
     render 'api/products/index'
   end
 
+  # if theres a products param, several products are created, else it
+  # creates one product
   def create
     if params[:products]
       params[:products].each do |product|
@@ -37,10 +39,15 @@ class Api::ProductsController < ApplicationController
     end
   end
 
+  # update the price field
   def update
     @product = Product.find(params[:id])
-    if @product.update(price: params[:price])
-      render 'api/products/show'
+    if @product
+      if @product.update(price: params[:price])
+        render 'api/products/show'
+      else
+        render json: ["Can only update price"], status: 422
+      end
     else
       render json: ["Product not found"], status: 422
     end

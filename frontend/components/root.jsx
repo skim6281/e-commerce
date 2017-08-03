@@ -11,11 +11,13 @@ import App from './app';
 
 
 const Root = ({ store }) => {
+  //check to see if user is admin
   const isAdmin = () => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser && currentUser.admin) return true
     return false
   }
+  //only allow admins to access some pages
   return (
     <Provider store={store}>
       <HashRouter>
