@@ -8,7 +8,7 @@ class ProductForm extends React.Component {
       brand: "",
       model: "",
       sku: "",
-      price: 0,
+      price: "",
       desc: ""
     }
     this.update = this.update.bind(this);
