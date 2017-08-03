@@ -21,11 +21,16 @@ class Home extends React.Component {
   }
 
   render() {
-    return(
-      <div className="below-nav product-feed">
-        {this.renderProducts()}
-      </div>
-    )
+    const { products } = this.props;
+    if(products.length === 0) {
+      return(<div className="below-nav">Nothing in stock</div>)
+    } else {
+      return(
+        <div className="below-nav product-feed">
+          {this.renderProducts()}
+        </div>
+      )
+    }
   }
 }
 
