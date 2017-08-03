@@ -27,13 +27,19 @@ class Cart extends React.Component {
     });
   };
 
+  renderBuyButton() {
+    if(this.props.cart.length > 0) {
+      return (<button onClick={this.makeOrder}>Buy</button>)
+    } else {
+      return(<div>Empty</div>)
+    }
+  }
 
   render() {
     return(
       <div className="below-nav">
-        Cart
         {this.renderCartItems()}
-        <button onClick={this.makeOrder}>Buy</button>
+        {this.renderBuyButton()}
       </div>
     )
   }
