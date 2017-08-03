@@ -13,12 +13,12 @@ class CartItem extends React.Component {
   render() {
     const { product, cartItem } = this.props;
     return (
-      <div>
+      <div className="cart-item">
         <h3> {product.name} </h3>
         <p> {product.brand} </p>
         <p> {product.model} </p>
         <p> {product.sku} </p>
-        <p> {product.price} </p>
+        <p> ${product.price} </p>
         <button onClick={this.removeCartItem}>Remove</button>
       </div>
     )

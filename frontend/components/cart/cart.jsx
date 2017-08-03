@@ -16,6 +16,7 @@ class Cart extends React.Component {
   }
 
   renderCartItems() {
+    console.log(this.props.cart);
     return this.props.cart.map(cartItem => {
       return (
           <CartItem
@@ -29,7 +30,7 @@ class Cart extends React.Component {
 
   renderBuyButton() {
     if(this.props.cart.length > 0) {
-      return (<button onClick={this.makeOrder}>Buy</button>)
+      return (<button className="buy" onClick={this.makeOrder}>Buy</button>)
     } else {
       return(<div>Empty</div>)
     }
