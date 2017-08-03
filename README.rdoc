@@ -9,3 +9,9 @@
   - bundle exec rails s
 
 - Go to http://localhost:3000
+
+== Technologies
+* Ruby on Rails v4.2.8
+* React v15.6.1
+* Redux
+* PostgreSQL
