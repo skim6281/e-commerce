@@ -27,9 +27,9 @@ class AuthForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if(formType === 'login') {
-      login(user).then(() => this.props.history.push('/#'));
+      login(user).then(() => this.props.history.push('/'));
     } else if(formType === 'signup') {
-      signup(user).then(() => this.props.history.push('/#'));
+      signup(user).then(() => this.props.history.push('/'));
     }
   }
 
@@ -46,7 +46,7 @@ class AuthForm extends React.Component {
     let linkText;
     let link;
     if(loggedIn) {
-      history.push('/#');
+      history.push('/');
       return (<div></div>)
     }
     if (formType === 'login') {

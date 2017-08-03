@@ -6,6 +6,7 @@ import { logout } from '../actions/session_actions';
 class Nav extends React.Component{
   constructor(props) {
     super(props);
+    this.logOut = this.logOut.bind(this);
   }
 
   renderAdminLinks() {
@@ -20,13 +21,17 @@ class Nav extends React.Component{
     }
   }
 
+  logOut() {
+    return this.props.logout().then(this.props.history.push('/'));
+  }
+
   renderLinks() {
     if(this.props.currentUser) {
       return (
         <ul>
           {this.renderAdminLinks()}
           <li><Link to="/cart">Cart</Link></li>
-          <li><button className="logout" onClick={this.props.logout}>Logout</button></li>
+          <li><button className="logout" onClick={this.logOut}>Logout</button></li>
         </ul>
       )
     } else {

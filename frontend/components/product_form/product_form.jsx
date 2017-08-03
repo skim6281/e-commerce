@@ -27,7 +27,7 @@ class ProductForm extends React.Component {
     const product = this.state;
     createProduct(product).then(() => {
       this.props.removeErrors();
-      this.props.history.push('/#');
+      this.props.history.push('/');
     });
   }
 
