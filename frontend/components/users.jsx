@@ -22,16 +22,21 @@ class Users extends React.Component {
   }
 
   render() {
-    return(
-      <div className="below-nav">
-        {this.renderUsers()}
-      </div>
-    )
+    if(this.props.currentUser.admin) {
+      return(
+        <div className="below-nav">
+          {this.renderUsers()}
+        </div>
+      )
+    } else {
+      return (<div className="below-nav">Unauthorized</div>)
+    }
   }
 }
 
 const mapStateToProps = state => {
   return {
+    currentUser: state.session.currentUser,
     users: state.users
   };
 };
@@ -46,5 +51,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Users);
-
-//createProduct: (product) => dispatch(createProduct(product))

@@ -43,7 +43,6 @@ class Product extends React.Component {
             <p> <b>Brand:</b> {product.brand} </p>
             <p> <b>Model:</b> {product.model} </p>
             <p> <b>Price:</b> ${product.price} </p>
-            <p> {product.sku} </p>
           </div>
         </a>
         <Modal

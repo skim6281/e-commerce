@@ -30,13 +30,17 @@ class Upload extends React.Component {
   }
 
   render() {
-    return(
-      <div className="below-nav">
-        <input type='file'
-          onChange={this.updateFile} />
-        <button onClick={this.handleSubmit}>Upload</button>
-      </div>
-    )
+    if(this.props.currentUser.admin) {
+      return(
+        <div className="below-nav">
+          <input type='file'
+            onChange={this.updateFile} />
+          <button onClick={this.handleSubmit}>Upload</button>
+        </div>
+      )
+    } else {
+      return(<div className="below-nav">Unauthorized</div>)
+    }
   }
 }
 

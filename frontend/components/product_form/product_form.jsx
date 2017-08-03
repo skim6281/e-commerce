@@ -27,7 +27,7 @@ class ProductForm extends React.Component {
     const product = this.state;
     createProduct(product).then(() => {
       this.props.removeErrors();
-      this.props.history.push('/#'),null
+      this.props.history.push('/#');
     });
   }
 
@@ -73,7 +73,7 @@ class ProductForm extends React.Component {
         </div>
       )
     }else {
-      return(<div>Unauthorized</div>)
+      return(<div className="below-nav">Unauthorized</div>)
     }
   }
 }
