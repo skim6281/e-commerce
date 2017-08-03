@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class ProductForm extends React.Component {
   constructor(props) {
@@ -22,12 +23,12 @@ class ProductForm extends React.Component {
   }
 
   handleSubmit(e) {
-    const { createProduct } = this.props;
+    const { createProduct, history } = this.props;
     e.preventDefault();
     const product = this.state;
     createProduct(product).then(() => {
       this.props.removeErrors();
-      this.props.history.push('/');
+      history.push('/');
     });
   }
 
@@ -78,4 +79,4 @@ class ProductForm extends React.Component {
   }
 }
 
-export default ProductForm;
+export default withRouter(ProductForm);
