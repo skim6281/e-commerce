@@ -3,6 +3,7 @@ import * as ProductAPIUtil from '../util/product_api_util';
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const RECEIVE_PRODUCT_ERRORS = 'RECEIVE_PRODUCT_ERRORS';
+export const REMOVE_PRODUCT_ERRORS = 'REMOVE_PRODUCT_ERRORS';
 
 export const receiveProducts = products => ({
   type: RECEIVE_PRODUCTS,
@@ -17,6 +18,10 @@ export const receiveProduct = product => ({
 export const receiveProductErrors = errors => ({
   type: RECEIVE_PRODUCT_ERRORS,
   errors
+})
+
+export const removeProductErrors = () => ({
+  type: REMOVE_PRODUCT_ERRORS
 })
 
 export const createProducts = file => dispatch => {

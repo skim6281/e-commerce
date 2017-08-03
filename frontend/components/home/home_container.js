@@ -5,7 +5,7 @@ import Home from './home';
 
 const mapStateToProps = state => {
   return({
-    products: state.products,
+    products: state.products.products,
     currentUser: state.session.currentUser
   });
 };

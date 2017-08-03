@@ -25,7 +25,16 @@ class ProductForm extends React.Component {
     const { createProduct } = this.props;
     e.preventDefault();
     const product = this.state;
-    createProduct(product);
+    createProduct(product).then(() => {
+      this.props.removeErrors();
+      this.props.history.push('/#'),null
+    });
+  }
+
+  renderErrors() {
+    return(
+      <p>{this.props.errors[0]}</p>
+    )
   }
 
   render() {
@@ -58,6 +67,7 @@ class ProductForm extends React.Component {
               placeholder="Description"
               value={this.state.desc}
               onChange={this.update("desc")} />
+            <div>{this.renderErrors()}</div>
             <button>Submit</button>
           </form>
         </div>

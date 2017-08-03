@@ -15,6 +15,7 @@
 
 class Product < ActiveRecord::Base
   validates :name, :brand, :model, :sku, :price, :desc, presence: true
+  validates :price, numericality: { only_integer: true }
   validates :sku, uniqueness: true
 
   has_many :cart_items
