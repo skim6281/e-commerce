@@ -15,3 +15,8 @@
 * React v15.6.1
 * Redux
 * PostgreSQL
+* SASS
+* Gems
+  * BCrypt
+  * Jbuilder
+  * Figaro
