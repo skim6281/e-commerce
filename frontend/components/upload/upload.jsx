@@ -17,10 +17,6 @@ class Upload extends React.Component {
     fileReader.onloadend = () => {
       this.setState({ file: file });
     };
-
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
   }
 
   handleSubmit(e) {
