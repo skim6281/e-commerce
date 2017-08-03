@@ -24,3 +24,7 @@
   * BCrypt
   * Jbuilder
   * Figaro
+  * validates_email_format_of
+  * RSpec
+  * Factory Girl
+  * Faker
